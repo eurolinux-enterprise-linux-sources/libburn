@@ -2,7 +2,7 @@
 
 Name:           libburn
 Version:        0.7.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Library for reading, mastering and writing optical discs
 
 Group:          System Environment/Libraries
@@ -13,6 +13,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:   libtool intltool gettext doxygen graphviz
 
+Patch0:		libburn-noclose.patch
 
 %description
 Libburn is an open-source library for reading, mastering and writing
@@ -48,6 +49,7 @@ features from the command line.
 %prep
 %setup -q
 
+%patch0 -p1 -b .noclose
 
 %build
 %configure --disable-static
@@ -93,6 +95,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon May 21 2012 Honza Horak <hhorak@redhat.com> - 0.7.0-2
+- Do not close track after sync cache
+  Resolves: #822906
+
 * Wed Sep 30 2009 Denis Leroy <denis@poolshark.org> - 0.7.0-1
 - Update to upstream 0.7.0
 - Fixed binary installation
