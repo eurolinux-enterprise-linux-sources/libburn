@@ -1,6 +1,6 @@
 Name:           libburn
 Version:        1.2.8
-Release:        2%{?dist}
+Release:        4%{?dist}
 Summary:        Library for reading, mastering and writing optical discs
 
 Group:          System Environment/Libraries
@@ -89,6 +89,12 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}.la
 
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1.2.8-4
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1.2.8-3
+- Mass rebuild 2013-12-27
+
 * Tue Apr 02 2013 Frantisek Kluknavsky <fkluknav@redhat.com> - 1.2.8-2
 - Run autoreconf to overwrite old scripts => recognize aarch64
 
